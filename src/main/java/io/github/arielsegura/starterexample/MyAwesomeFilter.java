@@ -14,8 +14,14 @@ public class MyAwesomeFilter extends OncePerRequestFilter {
 
     private Logger logger = LoggerFactory.getLogger(MyAwesomeFilter.class);
 
+    private final String phrase;
+
+    public MyAwesomeFilter(String phrase) {
+        this.phrase = phrase;
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        logger.info("Hello World!");
+        logger.info(phrase);
     }
 }
